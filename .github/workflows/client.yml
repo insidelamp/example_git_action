@@ -15,17 +15,15 @@ jobs:
       - name: Build
         run: npm run build
         working-directory: ./my-agora-states-client
-      - name: SHOW AWS CLI VERSION
+      - name:
+      
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_EC2_METADATA_DISABLED: true
           AWS_DEFAULT_REGION: ap-northeast-2
         run: |
-          aws s3 cp \
-            --recursive \
-            --region ap-northeast-2 \
-            dist s3://fe-99-insidelamp
+          aws --version
       - name: Sync Bucket
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
